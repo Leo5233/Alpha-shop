@@ -1,8 +1,21 @@
-# React + Vite
+安裝方式
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+在terminal輸入指令將檔案下載至本地
 
-Currently, two official plugins are available:
+  git clone https://github.com/Leo5233/Alpha-shop.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+進入Alpha-shop資料夾
+
+  cd Alpha-shop
+
+安裝所需套件
+
+  npm install
+
+啟動server
+
+  npm run dev
+
+看到出現Local:   http://localhost:3000/ 開啟瀏覽器
+
+於網址輸入localhost:3000即可看到畫面
