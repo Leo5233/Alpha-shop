@@ -8,12 +8,9 @@ a {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: white;
-}
-
-svg {
-  width: 20px;
-  height: 20px;
 }
 
 .header-container {
@@ -21,13 +18,32 @@ svg {
   height: 50px;
   margin: 0 5%;
 }
-.header-container .navbar-menu .nav-list {
+.header-container .navbar-menu {
   display: flex;
+  width: 100%;
 }
-.header-container .navbar-menu .nav-list li {
-  margin-left: 10px;
+.header-container .navbar-menu .nav-list:first-child {
+  display: flex;
+  width: 50%;
+  min-width: 350px;
+}
+.header-container .navbar-menu .nav-list:first-child li {
+  margin-left: 15px;
   list-style-type: none;
   color: black;
+}
+.header-container .navbar-menu .nav-icon {
+  margin: 10px auto auto auto;
+  width: 30%;
+}
+.header-container .navbar-menu .nav-list:last-child {
+  width: 10%;
+  display: flex;
+  margin: 0;
+}
+.header-container .navbar-menu .nav-list:last-child .nav-item {
+  list-style-type: none;
+  width: 40%;
 }
 
 main {
@@ -52,9 +68,23 @@ main .main-container .register-container .progress-container .text {
   display: flex;
   position: relative;
 }
+main .main-container .register-container .progress-container .text:nth-child(1)::before {
+  content: "1";
+}
+main .main-container .register-container .progress-container .text:nth-child(2)::before {
+  content: "1.5";
+}
+main .main-container .register-container .progress-container .text:nth-child(3)::before {
+  content: "2";
+}
+main .main-container .register-container .progress-container .text:nth-child(4)::before {
+  content: "2.5";
+}
+main .main-container .register-container .progress-container .text:nth-child(5)::before {
+  content: "3";
+}
 main .main-container .register-container .progress-container .text::before {
   position: absolute;
-  content: " 1";
   display: block;
   left: -30px;
   width: 14px;
@@ -122,6 +152,12 @@ main .main-container .step-container .step-controller {
   justify-content: space-between;
   align-items: center;
 }
+main .main-container .step-container .step-controller .previous {
+  opacity: 50%;
+}
+main .main-container .step-container .step-controller .next {
+  cursor: pointer;
+}
 main .main-container .step-container .pay {
   padding: 20px;
   height: 100%;
@@ -141,9 +177,10 @@ main .main-container .cart-container {
 main .main-container .cart-container .product-container {
   margin-top: 20px;
   width: 100%;
+  max-height: 100px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 15px;
 }
 main .main-container .cart-container .product-container .product-img {
@@ -153,6 +190,7 @@ main .main-container .cart-container .product-container .product-img img {
   width: 100px;
 }
 main .main-container .cart-container .product-container .product-name {
+  max-height: 20px;
   grid-row: 1/2;
   grid-column: 2/3;
 }
@@ -160,6 +198,17 @@ main .main-container .cart-container .product-container .product-control-contain
   grid-row: 2/3;
   grid-column: 2/3;
   vertical-align: top;
+}
+main .main-container .cart-container .product-container .product-control-container .product-control {
+  display: flex;
+  width: 100%;
+  min-width: 200px;
+}
+main .main-container .cart-container .product-container .product-control-container .product-control object {
+  width: 30px;
+}
+main .main-container .cart-container .product-container .product-control-container .product-control span {
+  margin: 0 30px 0 25px;
 }
 main .main-container .cart-container .product-container .price {
   grid-column: 3/4;
@@ -174,20 +223,40 @@ main .main-container .cart-container .cart-info .text {
 }
 
 .site-footer {
-  width: 10 0%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   background: #eee;
 }
 .site-footer .footer-container {
   width: 80%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
+.site-footer .footer-container .footer-logo-container {
+  text-align: center;
+  padding: 70px 20px 0 0;
+  height: 50px;
+  width: 200px;
+}
 .site-footer .footer-container .section-title {
   margin-bottom: 10px;
+  font-size: 20px;
 }
 .site-footer .footer-container a {
   color: #666;
+}
+.site-footer .footer-container .footer-section {
+  min-width: 80px;
+  height: 200px;
+}
+.site-footer .footer-container .footer-section .social-icon-group {
+  display: flex;
+}
+.site-footer .footer-container .footer-section .social-icon-group object {
+  width: 40px;
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=App.css.map */

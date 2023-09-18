@@ -1,3 +1,5 @@
+
+
 export default function Header(){
 return (
   <header className="site-header">
@@ -5,7 +7,7 @@ return (
       {/* <!-- navbar-toggle --> */}
       <input id="navbar-toggle" className="navbar-toggle d-none" type="checkbox" />
       <label htmlFor="navbar-toggle" className="burger-container">
-        <img src="../public/icons/toggle.svg" width="30px" height="30px" />
+        {/* <img src="../public/icons/toggle.svg" width="30px" height="30px" /> */}
       </label>
 
       {/* <!-- navbar-menu --> */}
@@ -27,38 +29,35 @@ return (
             <a className="nav-link" href="#">聯絡我們</a>
           </li>
         </ul>
+        {/* <!-- logo --> */}
+        <div className="nav-icon cursor-point">
+          <a className="header-logo-container" href="#">
+            <object data="../../public/icons/logo.png" type="image/svg+xml" />
+          </a>
+        </div>
         <ul className="nav-list site-action-list">
           {/* <!-- search --> */}
           <li className="nav-item">
-            <svg className="nav-icon cursor-point">
-              <object data="../public/icons/search.svg" type="image/svg+xml" />
-            </svg>
+            <div className="nav-icon cursor-point">
+              <object data="../../public/icons/search.png" type="image/svg+xml" />
+            </div>
           </li>
           {/* <!-- cart --> */}
           <li className="nav-item">
-            <svg className="nav-icon cursor-point">
-              <object data="../public/icons/cart.svg" type="image/svg+xml" />
-            </svg>
+            <div className="nav-icon cursor-point">
+              <object data="../../public/icons/cart.png" type="image/svg+xml" />
+            </div>
           </li>
           <li id="theme-toggle" className="nav-item">
             {/* <!-- moon --> */}
-            <svg className="nav-icon cursor-point">
-              <object data="../public/icons/moon.svg" type="image/svg+xml" />
-            </svg>
-            {/* <!-- sun --> */}
-            <svg className="nav-icon cursor-point">
-              <object data="../public/icons/sun.svg" type="image/svg+xml" />
-            </svg>
+            <div className="nav-icon cursor-point">
+              <object data="../../public/icons/moon.png" type="image/svg+xml" />
+            </div>
           </li>
         </ul>
       </nav>
 
-      {/* <!-- logo --> */}
-      <a className="header-logo-container" href="#">
-        <svg className="icon-logo cursor-point">
-          <object data="../public/icons/logo.svg" type="image/svg+xml" />
-        </svg>
-      </a>
+
     </div>
   </header>
 
