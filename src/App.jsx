@@ -1,11 +1,11 @@
 // import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
-import Address from './components/Address'
-import Shipping from './components/Shipping'
-import CreditCard from './components/CreditCard'
-import Step from './components/Step'
-import Progress from './components/Progress'
+import Address from './components/step/Address'
+import Shipping from './components/step/Shipping'
+import CreditCard from './components/step/CreditCard'
+import Step from './components/step/Step'
+import Progress from './components/step/Progress'
 import MainFrame from './components/MainFrame'
 function App() {
   // const [count, setCount] = useState(0)
