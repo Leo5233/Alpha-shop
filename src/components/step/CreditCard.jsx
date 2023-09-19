@@ -1,6 +1,6 @@
 export default function CreditCard(){
   return (
-    <htmlForm className="col col-12 d-none" data-phase="credit-card">
+    <htmlForm className="col col-12 " data-phase="credit-card">
       <h3 className="htmlForm-title">付款資訊</h3>
       <section className="htmlForm-body col col-12">
         <div className="col col-12">
