@@ -1,6 +1,8 @@
 import CartItems from '../assets/Cart'
+//import static data
 
 function Products({ Items }) {
+  //generate all products from Items
   const listItems = Items.map(item => {
     return (
       <div key={item.id} className="product-container col col-12" data-count={item.quantity} data-price={item.price}>
@@ -27,6 +29,7 @@ function Products({ Items }) {
   )
 }
 
+//count total cost of all products
 function TotalSum({Items}){
   const total = Items.reduce(
     function(nextItem, thisItem){
@@ -42,6 +45,7 @@ export default function Buy(){
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>
       <section className="product-list col col-12" data-total-price="0">
+          {/*generate all products from Items*/}
         <Products Items={CartItems}/>
       </section>
 

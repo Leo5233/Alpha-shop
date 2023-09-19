@@ -1,6 +1,6 @@
 export default function Shipping(){
   return (
-    <htmlForm className="col col-12 " data-phase="shipping">
+    <htmlForm className="col col-12 d-none" data-phase="shipping">
       <h3 className="htmlForm-title">運送方式</h3>
       <section className="htmlForm-body col col-12">
         <div className="delivery active">

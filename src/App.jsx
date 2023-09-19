@@ -21,21 +21,21 @@ function App() {
         <section className="register-container col col-lg-6 col-sm-12" data-phase="1" data-total-price="0">
           {/* <!-- register-title --> */}
           <h2 className="register-title col col-12">結帳</h2>
-          {/* 1.<!-- register-progress --> */}
+          {/* <!-- register-progress --> */}
           <Progress />
           {/* <!-- register-htmlForm --> */}
           <section className="htmlForm-container col col-12">
-            {/* 2.<!-- address phase --> */}
+            {/* <!-- address phase --> */}
             <Address />
-            {/* 3. <!-- shipping phase --> */}
+            {/*  <!-- shipping phase --> */}
             <Shipping />
-            {/* 4.<!-- credit-card phase --> */}
+            {/* <!-- credit-card phase --> */}
             <CreditCard />
-            {/* 5.<!-- choose phase --> */}
+            {/* <!-- choose phase --> */}
             <Step />
           </section>
         </section>
-        {/* <!-- cart --> */}
+        {/* <!-- Cart & Items--> */}
         <Buy />
       </MainFrame>
       {/* <!-- footer --> */}
