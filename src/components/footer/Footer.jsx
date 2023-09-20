@@ -1,6 +1,6 @@
 function FooterSection({title, items}){
   const listItems = items.map(item => 
-    <div key={title}>
+    <div key={item}>
       <a className="page-link" href="#">{item}</a>
     </div>)
   return (

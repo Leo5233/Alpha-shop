@@ -1,5 +1,6 @@
 import CartItems from '../assets/Cart'
 //import static data
+let tempCartItems = CartItems
 
 function Products({ Items }) {
   //generate all products from Items
@@ -12,9 +13,10 @@ function Products({ Items }) {
         <div className="product-name">{item.name}</div>
         <div className="product-control-container">
           <div className="product-control">
-            <object data="../../public/icons/minus.png" type="image/svg+xml" />
-            <span className="product-count">{item.quantity}</span>
-            <object data="../../public/icons/plus.png" type="image/svg+xml" />
+            <img onClick={handleClick} data-id={item.id} className="minus-btn"  src="../../public/icons/minus.png" alt="minus-image" />
+            <span className="product-count">{item.quantity}</span> 
+            <img onClick={handleClick} data-id={item.id} className="plus-btn" src="../../public/icons/plus.png" alt="plus-image" />
+
           </div>
         </div>
         <div className="price">${item.price}</div>
@@ -26,6 +28,30 @@ function Products({ Items }) {
     <>
       {listItems}
     </>
+  )
+}
+
+//click +/- button & change the product quantity
+function handleClick(event){
+  let quantity, num, id;
+  if (event.target.className === 'plus-btn'){
+    quantity = event.target.previousElementSibling 
+    num = Number(quantity.innerText) + 1 
+  } else if (event.target.className === 'minus-btn'){
+    quantity = event.target.nextElementSibling
+    if (Number(quantity.innerText) > 0 ){
+      num = Number(quantity.innerText) - 1 
+    }
+  }
+  id = event.target.dataset.id
+  quantity.innerText = num
+  //count total price again
+  tempCartItems[id - 1].quantity = num
+  const price = document.querySelector('.total')
+  price.innerText = tempCartItems.reduce(
+    function (nextItem, thisItem) {
+      return nextItem.price * nextItem.quantity + thisItem.price * thisItem.quantity
+    }
   )
 }
 
@@ -51,13 +77,11 @@ export default function Buy(){
 
       <section className="cart-info shipping col col-12">
         <div className="text">運費</div>
-        <div>免費</div>
-        <div className="price"></div>
+          <div className="delivery-price">免費</div>
       </section>
-      <section className="cart-info total col col-12">
+      <section className="cart-info col col-12">
         <div className="text">小計</div>
-          <div>$<TotalSum Items={CartItems} /></div>
-        <div className="price"></div>
+          <div className="total">$<TotalSum Items={CartItems} /></div>
       </section>
       </section>
       </>
