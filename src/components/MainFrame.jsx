@@ -4,6 +4,6 @@ export default function MainFrame({ children }) {
       <div className="main-container">
         {children}
       </div>
-    </main >
-  );
+    </main>
+  )
 }

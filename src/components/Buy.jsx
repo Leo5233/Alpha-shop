@@ -33,18 +33,20 @@ function Products({ Items }) {
 
 //click +/- button & change the product quantity
 function handleClick(event){
-  let quantity, num, id;
+  let [quantity, num, id] = ['', 0, 0]
   if (event.target.className === 'plus-btn'){
     quantity = event.target.previousElementSibling 
     num = Number(quantity.innerText) + 1 
+    quantity.innerText = num
   } else if (event.target.className === 'minus-btn'){
     quantity = event.target.nextElementSibling
     if (Number(quantity.innerText) > 0 ){
       num = Number(quantity.innerText) - 1 
     }
+    quantity.innerText = num
   }
   id = event.target.dataset.id
-  quantity.innerText = num
+
   //count total price again
   tempCartItems[id - 1].quantity = num
   const price = document.querySelector('.total')
