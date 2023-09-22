@@ -1,12 +1,31 @@
-export default function Progress(){
+
+export default function Progress({step, setStep}){
+
+  let [className1, className2, className3] = ['text', 'text', 'text']
+  switch (step) {
+    case 1:
+      className1 = 'text active'
+      className2 = 'text'
+      className3 = 'text'
+      break;
+    case 2:
+      className1 = 'text checked'
+      className2 = 'text active'
+      className3 = 'text'
+      break;
+    case 3:
+      className1 = 'text checked'
+      className2 = 'text checked'
+      className3 = 'text active'
+      break;
+  }
   return (
     <section className = "progress-container col col-12" >
-              <div className="text">寄送地址</div>
-              <div className="connect-line"></div>
-              <div className="text">運送方式</div>
-              <div className="connect-line"></div>
-              <div className="text">付款資訊</div>
+      <div className={className1}>寄送地址</div>
+      <div className="connect-line"></div>
+      <div className={className2}>運送方式</div>
+      <div className="connect-line"></div>
+      <div className={className3}>付款資訊</div>
     </section>
-
-);
+  );
 }

@@ -1,6 +1,10 @@
-export default function CreditCard(){
+export default function CreditCard({step}){
+  let creditCardclass = ''
+  if (step !== 3){
+    creditCardclass = 'd-none'
+  }
   return (
-    <htmlForm className="col col-12 d-none" data-phase="credit-card">
+    <htmlForm className={creditCardclass} data-phase="credit-card">
       <h3 className="htmlForm-title">付款資訊</h3>
       <section className="htmlForm-body col col-12">
         <div className="col col-12 input-group-row">

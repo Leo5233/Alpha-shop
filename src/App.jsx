@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './main.scss'
 import MainFrame from './components/MainFrame'
 import Header from './components/Header'
@@ -11,7 +11,7 @@ import Buy from './components/Buy'
 import Footer from './components/footer/Footer'
 function App() {
   // const [count, setCount] = useState(0)
-
+  const [step, setStep] = useState(1)
   return (
     <>
       {/* <Header /> */}
@@ -22,17 +22,24 @@ function App() {
           {/* <!-- register-title --> */}
           <h2 className="register-title col col-12">結帳</h2>
           {/* <!-- register-progress --> */}
-          <Progress />
+          <Progress 
+            step={step}
+            setStep={setStep}/>
           {/* <!-- register-htmlForm --> */}
           <section className="htmlForm-container col col-12">
             {/* <!-- address phase --> */}
-            <Address />
+            <Address 
+              step={step} />
             {/*  <!-- shipping phase --> */}
-            <Shipping />
+            <Shipping 
+              step={step} />
             {/* <!-- credit-card phase --> */}
-            <CreditCard />
+            <CreditCard 
+              step={step} />
             {/* <!-- choose phase --> */}
-            <Step />
+            <Step 
+              step={step}
+              setStep={setStep} />
           </section>
         </section>
         {/* <!-- Cart & Items--> */}

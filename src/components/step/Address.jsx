@@ -1,6 +1,10 @@
-export default function address() {
+export default function address({step}) {
+  let addressclass = ''
+  if (step !== 1) {
+    addressclass = 'd-none'
+  }
   return (
-    <htmlForm className = "col col-12" data-phase="address" >
+    <htmlForm className = {addressclass} data-phase="address" >
       <h3 className="htmlForm-title">寄送地址</h3>
       <section className="htmlForm-body col col-12">
         <div className="col col-12 input-group-row">

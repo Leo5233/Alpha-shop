@@ -78,7 +78,7 @@ main{
           left: -30px;
           width: 14px;
           height: 19px;
-          padding-left: 6px;
+          padding-left: 7px;
           padding-top: 2px;
           border-radius: 50%;
           border: 1px solid;
@@ -89,7 +89,15 @@ main{
           margin-left: 30px;
           border-top: 2px solid;
         }
-        .text:first-child::before{
+        .text.active::before{
+            background: black;
+            color: white;
+        }
+        .text.checked::before{
+            content: '\2714';
+            padding-top: 0;
+            padding-left: 5px;
+            border: 1px solid #000;
             background: black;
             color: white;
         }
@@ -178,11 +186,12 @@ main{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .previous{
-          opacity: 50%;
-        }
-        .next{
+        .next, .previous{
+          z-index: 2;
           cursor: pointer;
+          img{
+            z-index: -1;
+          }
         }
       }
       .pay{
@@ -194,7 +203,7 @@ main{
           background: #ff55aa;
           border-radius: 10px;
           color: white;
-          opacity: 50%;
+          cursor: pointer;
         }
       }
     }

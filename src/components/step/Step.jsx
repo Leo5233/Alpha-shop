@@ -1,14 +1,34 @@
-
-export default function Step(){
+export default function Step({step, setStep}){
   return (
     <div className="step-container">
       <div className="step-controller">
-        <div className="previous"><img src="../../public/icons/left-arrow.png" />上一步</div>
-        <div className="next">下一步<img src="../../public/icons/right-arrow.png" /></div>
-      </div>
-      <div className="pay">
-        <button className="pay-btn" disabled>確認下單</button>
+        {step > 1 && <div className="previous" onClick={handleClickPrevious}><img className="previous"  src="../../public/icons/left-arrow.png" />上一步</div> }
+        <NextTag />
       </div>
     </div>
   );
+
+  function handleClickPrevious(e){
+    if ( e.target.className === 'previous'){
+      setStep(step - 1)
+    }
+  }
+  function handleClickNext(e) {
+    if (e.target.className === 'next') {
+      setStep(step + 1)
+    }
+  }
+  
+  function NextTag(){
+    if (step < 3) {
+      return (
+        <div className="next" onClick={handleClickNext}>下一步<img className="next" src="../../public/icons/right-arrow.png" /></div>)
+    } else {
+      return (
+        <div className="pay">
+          <button className="pay-btn">確認下單</button>
+        </div>
+      )
+    }
+  }
 }

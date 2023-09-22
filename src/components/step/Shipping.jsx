@@ -1,6 +1,10 @@
-export default function Shipping(){
+export default function Shipping({step}){
+  let shippingclass = ''
+  if (step !== 2) {
+    shippingclass = 'd-none'
+  }
   return (
-    <htmlForm className="col col-12 d-none" data-phase="shipping">
+    <htmlForm className={shippingclass} data-phase="shipping">
       <h3 className="htmlForm-title">運送方式</h3>
       <section className="htmlForm-body col col-12">
         <div className="delivery active">

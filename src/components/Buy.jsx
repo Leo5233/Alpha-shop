@@ -36,9 +36,9 @@ export default function Buy(){
           <div className="product-name">{item.name}</div>
           <div className="product-control-container">
             <div className="product-control">
-              <img onClick={handleClick} data-id={item.id} className="minus-btn" src="../../public/icons/minus.png" alt="minus-image" />
+              <img onClick={handleClickMinus} data-id={item.id} className="minus-btn" src="../../public/icons/minus.png" alt="minus-image" />
               <span className="product-count">{item.quantity}</span>
-              <img onClick={handleClick} data-id={item.id} className="plus-btn" src="../../public/icons/plus.png" alt="plus-image" />
+              <img onClick={handleClickPlus} data-id={item.id} className="plus-btn" src="../../public/icons/plus.png" alt="plus-image" />
 
             </div>
           </div>
@@ -54,13 +54,22 @@ export default function Buy(){
     )
   }
   
-  function handleClick(e) {
+  function handleClickPlus(e) {
+    const id = e.target.dataset.id
+    const tempCart = nowCartItems.map(item => {
+      if (item.id === id && e.target.className === 'plus-btn') {
+          return { ...item, quantity: item.quantity + 1 }
+      } else {
+        return item
+      }
+    })
+    setNowCartItems(tempCart)
+  }
+  function handleClickMinus(e) {
     const id = e.target.dataset.id
     const tempCart = nowCartItems.map(item => {
       if (item.id === id) {
-        if (e.target.className === 'plus-btn') {
-          return { ...item, quantity: item.quantity + 1 }
-        } else if (e.target.className === 'minus-btn' && item.quantity > 0) {
+       if (e.target.className === 'minus-btn' && item.quantity > 0) {
           return { ...item, quantity: item.quantity - 1 }
         } else {
           return item
