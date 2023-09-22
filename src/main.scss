@@ -104,7 +104,10 @@ main{
       }
       .htmlForm-container{
         margin-top: 20px;
-        
+
+        .htmlForm{
+          height: 350px;
+        }
         .htmlForm-body{
           max-width: 600px;
           display: flex;
@@ -116,37 +119,42 @@ main{
             height: 70px;
             display: flex;
             padding-right: 20px;
+            &.selected{
+              border: 1px solid #666;
+              border-radius: 5px;
+            }
             .radio-box-border{
               text-align: center;
               width: 15%;
               padding-top: 25px;
-              #shipping-standard, #shipping-dhl{
-                -webkit-appearance: none;
-                border: 1px solid #000;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-              }
-            }
-            .radio-info{
-              width: 100%;
-              .shipping-text {
-                  flex: 1;
-                  padding-top: 15px;
-                  padding-bottom: 0;
-                  display: flex;
-                  justify-content: space-between;
-              }
-            }
-            &.active{
-              border: 1px solid #666;
-              border-radius: 5px;
-             #shipping-standard,
-              #shipping-dhl {
+              #shipping-standard,
+                #shipping-dhl {
+                  -webkit-appearance: none;
+                  border: 1px solid #000;
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                }
+              #shipping-standard:checked, #shipping-dhl:checked{
                 border: 0;
                 box-shadow: inset 0 0 0 5px black;
               }
             }
+            .radio-info{
+              width: 100%;
+              display: flex;
+              .shipping-text {
+                flex: 1;
+                padding-top: 15px;
+                padding-bottom: 0;
+                display: flex;
+                justify-content: space-between;
+              }
+              .period{
+                padding-top: 15px;
+              }
+            }
+
           }
           .input-group-row{
             width: 100%;
@@ -185,13 +193,10 @@ main{
         flex: 1;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
         .next, .previous{
-          z-index: 2;
+          margin-top: 10px;
           cursor: pointer;
-          img{
-            z-index: -1;
-          }
         }
       }
       .pay{
