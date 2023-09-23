@@ -1,4 +1,11 @@
+import { useState } from 'react'
 export default function Shipping({step}){
+  const [chooseRadio1, setChooseRadio1] = useState(true)
+  let [radioClass1, radioClass2] = ['delivery selected', 'delivery']
+  if (!chooseRadio1){
+    radioClass1 = 'delivery'
+    radioClass2 = 'delivery selected'
+  }
   let shippingclass = "htmlForm"
   if (step !== 2) {
     shippingclass = 'd-none'
@@ -8,10 +15,12 @@ export default function Shipping({step}){
       <htmlForm className="col col-12" data-phase="shipping">
         <h3 className="htmlForm-title">運送方式</h3>
         <section className="htmlForm-body col col-12">
-          <div className="delivery delivery1 " id="delivery1">
+          <div className={radioClass1} onClick={()=> setChooseRadio1(true)}>
             <div className="radio-box-border">
               <label className="radio-group col col-12" data-price="0">          </label>
-              <input id="shipping-standard" type="radio" name="shipping" /> 
+              {chooseRadio1 
+              ? <input id="shipping-standard" type="radio" name="shipping" checked/> 
+              : <input id="shipping-standard" type="radio" name="shipping" />} 
             </div>
             <div className="radio-info">          
               <div className="col col-12 shipping-text">
@@ -24,10 +33,12 @@ export default function Shipping({step}){
             </div>
           </div>
 
-          <div className="delivery" id="delivery2">
+          <div className={radioClass2} onClick={() => setChooseRadio1(false)}>
             <div className="radio-box-border">
               <label className="radio-group col col-12" data-price="0500">          </label>
-              <input id="shipping-dhl" type="radio" name="shipping" />
+              {!chooseRadio1 
+              ? <input id="shipping-dhl" type="radio" name="shipping" checked /> 
+              : <input id="shipping-dhl" type="radio" name="shipping" />}
             </div>
             <div className="radio-info">
               <div className="col col-12 shipping-text">
@@ -45,17 +56,19 @@ export default function Shipping({step}){
   );
 }
 
-const radioContainer1 = document.querySelector('#delivery1')
-const radioContainer2 = document.querySelector('#delivery2')
-radioContainer1.addEventListener('click', e=>{
-  const radio1 = document.querySelector("#shipping-standard")
-  radio1.checked = true
-  radioContainer1.classList.add('selected')
-  radioContainer2.classList.remove('selected')
-})
-radioContainer2.addEventListener('click', e => {
-  const radio2 = document.querySelector("#shipping-dhl")
-  radio2.checked = true
-  radioContainer2.classList.add('selected')
-  radioContainer1.classList.remove('selected')
-})
+// const radioContainer1 = document.querySelector('#delivery1')
+// const radioContainer2 = document.querySelector('#delivery2')
+// radioContainer1.addEventListener('click', e=>{
+//   const radio1 = document.querySelector("#shipping-standard")
+//   console.log(radio1)
+//   radio1.checked = true
+//   radioContainer1.classList.add('selected')
+//   radioContainer2.classList.remove('selected')
+// })
+// radioContainer2.addEventListener('click', e => {
+//   const radio2 = document.querySelector("#shipping-dhl")
+//   console.log(radio2)
+//   radio2.checked = true
+//   radioContainer2.classList.add('selected')
+//   radioContainer1.classList.remove('selected')
+// })
