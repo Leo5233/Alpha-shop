@@ -5,13 +5,14 @@ return (
   <header className="site-header">
     <div className="header-container mx-auto">
       {/* <!-- navbar-toggle --> */}
-      <input id="navbar-toggle" className="navbar-toggle d-none" type="checkbox" />
       <label htmlFor="navbar-toggle" className="burger-container">
         {/* <img src="../public/icons/toggle.svg" width="30px" height="30px" /> */}
+        <div className="hamburger"></div>
       </label>
-
+      <input id="navbar-toggle" className="navbar-toggle d-none" type="checkbox" />
       {/* <!-- navbar-menu --> */}
       <nav className="navbar-menu">
+        
         <ul className="nav-list site-menu-list mr-auto">
           <li className="nav-item">
             <a className="nav-link" href="#">男款</a>
