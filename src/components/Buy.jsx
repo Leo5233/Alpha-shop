@@ -1,9 +1,11 @@
 // import CartItems from '../assets/Cart'
 import { cartContext, cardItems } from '../assets/CartContext'
 import { useState, useContext } from 'react'
+import { sumContext } from "./step/formContext"
 
 export default function Buy(){  
   const [nowCartItems, setNowCartItems] = useState(cardItems)
+  const {totalSum, setTotalSum} = useContext(sumContext)
   //click +/- button & change the product quantity
   return (
     <>
@@ -95,6 +97,7 @@ export default function Buy(){
         return nextItem.price * nextItem.quantity + thisItem.price * thisItem.quantity
       }
     )
+    setTotalSum(total)
     return total
   }
 }

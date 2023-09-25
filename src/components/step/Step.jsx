@@ -29,7 +29,7 @@ export default function Step({setStep}){
     } else {
       return (
         <div className="pay">
-          <button className="pay-btn">確認下單</button>
+          <input type='submit' form='creditCardForm' className="pay-btn" value='確認下單'/>
         </div>
       )
     }

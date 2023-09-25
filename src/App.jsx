@@ -7,12 +7,14 @@ import Shipping from './components/step/Shipping'
 import CreditCard from './components/step/CreditCard'
 import Step from './components/step/Step'
 import { stepContext } from './components/step/stepContext'
+import { cardContext, sumContext } from './components/step/formContext'
 import Progress from './components/step/Progress'
 import Buy from './components/Buy'
 import Footer from './components/footer/Footer'
 function App() {
-  // const [count, setCount] = useState(0)
   const [step, setStep] = useState(1)
+  const [cardData, setCardData] = useState({ name: "", cardNumber: "", expireDate: "", CCV :""})
+  const [totalSum, setTotalSum] = useState(0)
 
   return (
     <>
@@ -33,14 +35,18 @@ function App() {
             {/*  <!-- shipping phase --> */}
             <Shipping />
             {/* <!-- credit-card phase --> */}
-            <CreditCard />
+            <cardContext.Provider value={{cardData, setCardData}}>
+            <CreditCard totalSum={totalSum}/>
+            </cardContext.Provider>
             {/* <!-- choose phase --> */}
             <Step 
               setStep={setStep} />
           </section>
         </section>
         {/* <!-- Cart & Items--> */}
+          <sumContext.Provider value={{ totalSum, setTotalSum }}>
         <Buy />
+          </sumContext.Provider>
       </MainFrame>
       {/* <!-- footer --> */}
       <Footer />
