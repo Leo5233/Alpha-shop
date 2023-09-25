@@ -1,4 +1,7 @@
-export default function address({step}) {
+import { stepContext } from "./stepContext"
+import { useContext } from 'react'
+export default function Address() {
+  const step = useContext(stepContext)
   let addressclass = 'htmlForm'
   if (step !== 1) {
     addressclass = 'd-none'
@@ -12,7 +15,7 @@ export default function address({step}) {
     const listItem = cityList.map( city => {
       const name = city.split('-')[1]
       const shortName = city.split('-')[0]
-      return (<option value={shortName}>{name}</option>)
+      return (<option key={shortName} value={shortName}>{name}</option>)
     })
     return (
     <select required>

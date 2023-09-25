@@ -1,6 +1,8 @@
 
-export default function Progress({step, setStep}){
-
+import { useContext } from 'react'
+import { stepContext } from "./stepContext"
+export default function Progress(){
+  const step = useContext(stepContext)
   let [className1, className2, className3] = ['text', 'text', 'text']
   switch (step) {
     case 1:

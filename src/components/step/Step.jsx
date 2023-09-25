@@ -1,4 +1,7 @@
-export default function Step({step, setStep}){
+import { useContext } from 'react'
+import { stepContext } from "./stepContext"
+export default function Step({setStep}){
+  const step = useContext(stepContext)
   return (
     <div className="step-container">
       <div className="step-controller">

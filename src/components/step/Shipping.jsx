@@ -1,5 +1,7 @@
-import { useState } from 'react'
-export default function Shipping({step}){
+import { useState, useContext } from 'react'
+import { stepContext } from "./stepContext"
+export default function Shipping(){
+  const step = useContext(stepContext)
   const [chooseRadio1, setChooseRadio1] = useState(true)
   let [radioClass1, radioClass2] = ['delivery selected', 'delivery']
   if (!chooseRadio1){

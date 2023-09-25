@@ -1,4 +1,7 @@
-export default function CreditCard({step}){
+import { useContext } from 'react'
+import { stepContext } from "./stepContext"
+export default function CreditCard(){
+  const step = useContext(stepContext)
   let creditCardclass = 'htmlForm'
   if (step !== 3){
     creditCardclass = 'd-none'

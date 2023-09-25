@@ -6,15 +6,18 @@ import Address from './components/step/Address'
 import Shipping from './components/step/Shipping'
 import CreditCard from './components/step/CreditCard'
 import Step from './components/step/Step'
+import { stepContext } from './components/step/stepContext'
 import Progress from './components/step/Progress'
 import Buy from './components/Buy'
 import Footer from './components/footer/Footer'
 function App() {
   // const [count, setCount] = useState(0)
   const [step, setStep] = useState(1)
+
   return (
     <>
       {/* <Header /> */}
+      <stepContext.Provider value={step}>
       <Header />
       <MainFrame>
         {/* <!-- register --> */}
@@ -22,23 +25,17 @@ function App() {
           {/* <!-- register-title --> */}
           <h2 className="register-title col col-12">結帳</h2>
           {/* <!-- register-progress --> */}
-          <Progress 
-            step={step}
-            setStep={setStep}/>
+          <Progress />
           {/* <!-- register-htmlForm --> */}
           <section className="htmlForm-container col col-12">
             {/* <!-- address phase --> */}
-            <Address 
-              step={step} />
+            <Address  />
             {/*  <!-- shipping phase --> */}
-            <Shipping 
-              step={step} />
+            <Shipping />
             {/* <!-- credit-card phase --> */}
-            <CreditCard 
-              step={step} />
+            <CreditCard />
             {/* <!-- choose phase --> */}
             <Step 
-              step={step}
               setStep={setStep} />
           </section>
         </section>
@@ -47,6 +44,7 @@ function App() {
       </MainFrame>
       {/* <!-- footer --> */}
       <Footer />
+      </stepContext.Provider>
     </>
   )
 }

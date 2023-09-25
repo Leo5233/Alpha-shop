@@ -1,16 +1,20 @@
-import CartItems from '../assets/Cart'
-import { useState } from 'react'
+// import CartItems from '../assets/Cart'
+import { cartContext, cardItems } from '../assets/CartContext'
+import { useState, useContext } from 'react'
 
 export default function Buy(){  
-  const [nowCartItems, setNowCartItems] = useState(CartItems)
+  const [nowCartItems, setNowCartItems] = useState(cardItems)
   //click +/- button & change the product quantity
   return (
     <>
+      <cartContext.Provider value={nowCartItems}>
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>
       <section className="product-list col col-12" data-total-price="0">
         {/*generate all products from Items*/}
-        <Products Items={nowCartItems}/>
+        
+          <Products />
+       
       </section>
 
       <section className="cart-info shipping col col-12">
@@ -19,14 +23,16 @@ export default function Buy(){
       </section>
       <section className="cart-info col col-12">
         <div className="text">小計</div>
-          <div className="total">$<TotalSum Items={nowCartItems} /></div>
+          <div className="total">$<TotalSum /></div>
       </section>
       </section>
+      </cartContext.Provider>
       </>
   )
 
-  function Products({ Items }) {
+  function Products() {
     //generate all products from Items
+    const Items = useContext(cartContext)
     const listItems = Items.map(item => {
       return (
         <div key={item.id} className="product-container col col-12" data-count={item.quantity} data-price={item.price}>
@@ -82,7 +88,8 @@ export default function Buy(){
   }
 
   //count total cost of all products
-  function TotalSum({ Items }) {
+  function TotalSum() {
+    const Items = useContext(cartContext)
     const total = Items.reduce(
       function (nextItem, thisItem) {
         return nextItem.price * nextItem.quantity + thisItem.price * thisItem.quantity

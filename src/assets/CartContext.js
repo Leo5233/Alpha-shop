@@ -1,4 +1,5 @@
-const CartItems = [
+import { createContext } from 'react'
+export const cardItems = [
   {
     id: '1',
     name: '貓咪罐罐',
@@ -14,4 +15,4 @@ const CartItems = [
     quantity: 1,
   },
 ]
-export default CartItems;
+export const cartContext = createContext(cardItems)
