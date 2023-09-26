@@ -5,11 +5,38 @@ a{
   text-decoration: none;
   color:#000;
 }
+:root {
+  --text: #000;
+  --footer: #eee;
+  --white: #fff;
+  --light-gray: #a7aaaf;
+  --button: #ff55aa;
+  --dark-gray: #666;
+  --button-text: #fff
+}
 
+[data-theme="light"]{
+  --text: #fff;
+  --footer: #444;
+  --white: #333;
+  --light-gray: #666;
+  --button: #555;
+  --dark-gray: #666;
+  a{color: var(--text);}
+}
+
+@mixin getStepNum($num) {
+  @for $i from 1 through $num {
+    &:nth-child(#{$i})::before {
+      content: '#{($i + 1) / 2}';
+    }
+  }
+}
 body{
   margin: 0;
   padding: 0;
-  background: white;
+  background: var(--white);
+  color: var(--text);
 }
 .header-container{
   display: flex;
@@ -27,12 +54,12 @@ body{
     height: 2px;
     left: 0px;
     top: 20px;
-    background: black;
+    background: var(--text);
     z-index: 2;
     &::after{
       width: 30px;
       height: 3px;
-      background: black;
+      background: var(--text);
       content: ''; 
       position: absolute;
       top: 13px;
@@ -40,7 +67,7 @@ body{
     &::before {
       width: 30px;
       height: 2px;
-      background: black;
+      background: var(--text);
       content: '';
       position: absolute;
       top: 26px;
@@ -59,14 +86,14 @@ body{
       min-width: 350px;
       height: 200px;
       z-index: 1;
-      background: white;
+      background: var(--white);
 
       li {
         margin-left: 15px;
         margin-top:15px;
         list-style-type: none;
 
-        color: black;
+        color: var(--text);
       }
     }
     .nav-icon{
@@ -85,13 +112,7 @@ body{
     }
   }
 }
-@mixin getStepNum($num){
-  @for $i from 1 through $num{
-    &:nth-child(#{$i})::before{
-      content: '#{($i + 1) / 2}';
-    }
-  }
-}
+
  main {
    margin: 0 auto;
    width: 100%;
@@ -116,7 +137,6 @@ body{
 
          .text::before {
            position: absolute;
-           // content: '1';
            display: block;
            left: -30px;
            width: 14px;
@@ -135,17 +155,17 @@ body{
          }
 
          .text.active::before {
-           background: black;
-           color: white;
+           background: var(--text);
+           color: var(--white);
          }
 
          .text.checked::before {
            content: '\2714';
            padding-top: 0;
            padding-left: 5px;
-           border: 1px solid #000;
-           background: black;
-           color: white;
+           border: 1px solid var(--text);
+           background: var(--text);
+           color: var(--white);
          }
        }
 
@@ -181,7 +201,7 @@ body{
                #shipping-standard,
                #shipping-dhl {
                  -webkit-appearance: none;
-                 border: 1px solid #000;
+                 border: 1px solid var(--text);
                  width: 20px;
                  height: 20px;
                  border-radius: 50%;
@@ -190,7 +210,7 @@ body{
                #shipping-standard:checked,
                #shipping-dhl:checked {
                  border: 0;
-                 box-shadow: inset 0 0 0 5px black;
+                 box-shadow: inset 0 0 0 5px var(--text);
                }
              }
 
@@ -281,9 +301,9 @@ body{
          .pay-btn {
            width: 200px;
            height: 50px;
-           background: #ff55aa;
+           background: var(--button);
            border-radius: 10px;
-           color: white;
+           color: var(--button-text);
            cursor: pointer;
          }
        }
@@ -346,7 +366,7 @@ body{
          display: flex;
          padding-top: 20px;
          margin-top: 40px;
-         border-top: 1px solid #ddd;
+         border-top: 1px solid var(--light-gray);
 
          .text {
            flex: 1;
@@ -368,6 +388,7 @@ body{
 
       .nav-list:first-child {
         opacity: 1;
+        transform: scale(1, 1);
         height: 30px;
         display: flex;
         width: 50%;
@@ -394,7 +415,7 @@ body{
   height: 40vh;
   margin: 80px 0 0 0;
   padding: 0;
-  background: #eee;
+  background: var(--footer);
 
   .footer-container {
     width: 80%;
@@ -415,7 +436,7 @@ body{
     }
 
     a {
-      color: #666;
+      color: var(--dark-gray);
     }
 
     .footer-section {

@@ -62,6 +62,7 @@ export default function Buy(){
     )
   }
   
+  //change cart items quantity when clicking +
   function handleClickPlus(e) {
     const id = e.target.dataset.id
     const tempCart = nowCartItems.map(item => {
@@ -73,6 +74,7 @@ export default function Buy(){
     })
     setNowCartItems(tempCart)
   }
+  //change cart items quantity when clicking -
   function handleClickMinus(e) {
     const id = e.target.dataset.id
     const tempCart = nowCartItems.map(item => {

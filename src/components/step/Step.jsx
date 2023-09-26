@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { stepContext } from "./stepContext"
 export default function Step({setStep}){
   const step = useContext(stepContext)
+  //show 上一步 if step > 1
   return (
     <div className="step-container">
       <div className="step-controller">
@@ -22,6 +23,7 @@ export default function Step({setStep}){
     }
   }
   
+  //show 確認下單 when step = 3 or show 下一步
   function NextTag(){
     if (step < 3) {
       return (
@@ -29,7 +31,7 @@ export default function Step({setStep}){
     } else {
       return (
         <div className="pay">
-          <input type='submit' form='creditCardForm' className="pay-btn" value='確認下單'/>
+          <input type='submit' form='creditCardForm' className="pay-btn sss" value='確認下單'/>
         </div>
       )
     }

@@ -41,13 +41,9 @@ export default function CreditCard({totalSum}){
       </form>
     </div>
   );
+  //read form data when clicking submit and set data into state
   function handleSubmit(e){
     e.preventDefault()
-    for (let data of e.target){
-      if (data.name.length > 0){
-        // console.log(`${data.name}: ${data.value}`)
-      }
-    }
     const formData = { 
       name: e.target[0].value, 
       cardNumber: e.target[1].value, 

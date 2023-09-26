@@ -4,6 +4,7 @@ import { stepContext } from "./stepContext"
 export default function Progress(){
   const step = useContext(stepContext)
   let [className1, className2, className3] = ['text', 'text', 'text']
+  //change the pattern of the three circles by setting className according to step
   switch (step) {
     case 1:
       className1 = 'text active'
